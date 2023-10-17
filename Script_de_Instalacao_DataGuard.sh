@@ -39,7 +39,7 @@ instalarJar() {
         if [ $? -eq 0 ]; then
             echo "Instalação concluída!"
             echo "Iniciando o DataGuard."
-            java -jar cineproject.jar
+            java -jar Looca.jar
         else
             echo "O curl encontrou um erro."
         fi
