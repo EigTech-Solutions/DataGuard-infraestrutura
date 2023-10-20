@@ -20,34 +20,27 @@ verificarJava() {
     if [ $? = 0 ]; then
         echo “java instalado na versão $?”
     else
-        echo "java não instalado"
-        echo "Gostaria de instalar o Java? [s/n]"
-        read get
-        if [ \“$get\” == \“s\” ]; then
-            echo "Instalando o Java 17..."
-            sudo apt install openjdk-17-jre -y
-        else
-            echo "O Java não foi instalado, não foi possível completar a instalação do DataGuard."
-            exit 1
-        fi
+        echo "Java não encontrado"
+        echo "Instalando o Java 17..."
+        sudo apt install openjdk-17-jre -y
     fi
 }
 
 instalarJar() {
     clear
-    ls | grep "Looca.jar"
+    ls | grep "dataguard.jar"
 
     if [ $? = 0 ]; then
         echo "DataGuard já instalado"
         echo "Iniciando o DataGuard."
-        java -jar Looca.jar
+        java -jar dataguard.jar
     else
         echo "Instalando o DataGuard..."
-        curl -o Looca.jar -LJO https://github.com/EigTech-Solutions/JAR---DataGuard/raw/main/Looca.jar #trocar para o nosso prj
+        curl -o dataguard.jar -LJO https://github.com/EigTech-Solutions/JAR---DataGuard/raw/main/dataguard.jar #trocar para o nosso prj
         if [ $? -eq 0 ]; then
             echo "Instalação concluída!"
             echo "Iniciando o DataGuard."
-            java -jar Looca.jar
+            java -jar dataguard.jar
         else
             echo "O curl encontrou um erro."
         fi
