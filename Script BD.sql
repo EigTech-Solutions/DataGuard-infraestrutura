@@ -152,3 +152,19 @@ INSERT INTO usuario VALUES
 
 INSERT INTO acessoUsuario VALUES
 	(null, 1, 1, 1, '2023-11-01');
+    
+    -- Inserindo dados na tabela instituicao
+INSERT INTO instituicao (nomeInstitucional, cnpj, email, telefone, cep, numeroEndereco, complemento, fkParametrosMonitoramento)
+VALUES ('Instituicao 1', '12345678901234', 'instituicao1@example.com', '1234567890', '12345678', '123', 'Complemento 1', 1);
+
+-- Inserindo dados na tabela usuario
+INSERT INTO usuario (fkInstitucional, nome, email, senha, telefone)
+VALUES (2, 'Enzo Stane', 'enzin@gmail.com', '2207', '987654321');
+
+-- Inserindo dados na tabela acessoUsuario
+INSERT INTO acessoUsuario (fkUsuario, fkInstitucional, fkAcesso, dataAcessoUsuario)
+VALUES (2, 2, 2, '2023-11-02'), (2, 2, 3, '2023-11-02');
+
+-- Inserindo dados na tabela laboratorio
+INSERT INTO laboratorio (fkInstitucional, nomeSala, numeroSala, fkResponsavel)
+VALUES (2, 'Laboratorio 1', '101', 2), (2, 'Laboratorio 2', '102', 2), (2, 'Laboratorio 3', '103', 2), (2, 'Laboratorio 4', '104', 2), (2, 'Laboratorio 5', '105', 1);
