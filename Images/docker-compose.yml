@@ -1,0 +1,7 @@
+version: '1.0'
+
+services:
+  mysql_dataguard:
+    image: dataguard2023/infra-dataguard:latest
+    ports: 3306
+    - "3306:3306"
