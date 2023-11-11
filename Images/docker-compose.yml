@@ -5,4 +5,4 @@ services:
     container_name: dataguard_mysql
     image: dataguard2023/infra-dataguard:latest
     ports: 
-     - "3306:3306"
+      - "3306:3306"
