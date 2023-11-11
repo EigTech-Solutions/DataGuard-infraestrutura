@@ -1,6 +1,7 @@
-version: '3.8'
+version: '3.9'
 
 services:
-  mysql_dataguard:
+    title: mysql_dataguard
     image: dataguard2023/infra-dataguard:latest
-    ports: 3306:3306
+    ports: 
+    - "3306:3306"
