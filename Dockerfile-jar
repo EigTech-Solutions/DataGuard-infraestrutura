@@ -1,0 +1,4 @@
+FROM busybox
+
+# Instala o wget
+RUN wget -O /app/dataguard.jar https://raw.githubusercontent.com/EigTech-Solutions/Java/main/target/dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar
