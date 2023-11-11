@@ -4,6 +4,11 @@ services:
   jarDataGuard:
     image: openjdk:11-jre-slim
     working_dir: /app
-    volumes:
-      - ./dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar:/app/dataguard.jar
     command: java -jar dataguard.jar
+
+    # Adicionando o bloco 'build' para realizar o download do JAR
+    build:
+      context: .
+      dockerfile: Dockerfile-jar
+
+    # Outras configurações necessárias para o seu serviço
