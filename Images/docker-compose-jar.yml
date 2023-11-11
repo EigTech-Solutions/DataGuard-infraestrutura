@@ -5,5 +5,5 @@ services:
     image: openjdk:11-jre-slim
     working_dir: /app
     volumes:
-      - ./EigTech-Solutions/DataGuard-infraestrutura/tree/main/Images/dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar:/app/dataguard.jar
+      - ./dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar:/app/dataguard.jar
     command: java -jar dataguard.jar
