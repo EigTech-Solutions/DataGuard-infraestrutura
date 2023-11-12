@@ -21,10 +21,18 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       -
-        name: Build and push
+        name: Build and push mysql
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/infra-dataguard:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/db:latest
+      -
+        name: Build and push jar
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile-jar
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/jar:latest
