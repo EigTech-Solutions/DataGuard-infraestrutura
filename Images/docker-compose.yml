@@ -3,6 +3,11 @@ version: '3.9'
 services:
   dataguard_mysql:
     container_name: dataguard_mysql
-    image: dataguard2023/infra-dataguard:latest
+    image: dataguard2023/db:latest
     ports: 
       - "3306:3306"
+  jarDataGuard:
+    image: dataguard2023/jar:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-jar
