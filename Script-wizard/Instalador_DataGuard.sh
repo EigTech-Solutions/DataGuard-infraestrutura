@@ -52,31 +52,13 @@ rodarDockerIo() {
         echo "O container $NOME_CONTAINER está em execução."
         exit 0
     else
-        echo sudo docker run --name dataguard_mysql -d -p 3306:3306 dataguard2023/infra-dataguard:latest
-        exit 1
-    fi
-}
-instalarDockerCompose() {
-    echo "Verificando o docker compose..."
-    sleep 2
-    docker-compose –version
-    if [ $? = 0 ]; then
-        echo "Docker compose não instalado."
-        echo "Instalando docker compose..."
-        sudo apt install docker-compose
-        docker-compose -f /Images/docker-compose.yml up
-        sleep 2
-        exit 0
-    else
-        echo "Iniciando o docker compose..."
-        docker-compose -f /Images/docker-compose.yml up
-        sleep 2
+        sudo docker run --name dataguard_mysql -d -p 3306:3306 dataguard2023/db:latest
         exit 1
     fi
 }
 instalarJar() {
     clear
-    ls | grep "dataguard.jar"
+    ls | grep "dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
     if [ $? = 0 ]; then
         echo "DataGuard já instalado"
@@ -86,12 +68,12 @@ instalarJar() {
     else
         echo "Instalando o DataGuard..."
         sleep 2
-        curl -o dataguard.jar -LJO https://github.com/EigTech-Solutions/JAR---DataGuard/raw/main/dataguard.jar #trocar para o nosso prj
-        if [ $? -eq 0 ]; then
+        Sudo docker run –it dataguard2023/jar:latest 
+     if [ $? -eq 0 ]; then
             echo "Instalação concluída!"
             echo "Iniciando o DataGuard."
             sleep 2
-            java -jar dataguard.jar
+            java -jar dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar
         else
             echo "O curl encontrou um erro."
         fi
