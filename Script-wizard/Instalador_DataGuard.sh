@@ -13,7 +13,7 @@ update() {
 instalardockerio() {
     echo "Verificando a versão do Docker..."
     sudo docker -v
-    if [$? = 0]; then
+    if [ $? -eq 0 ]; then
         echo "Instalando o Docker..."
         sudo apt install docker.io -y
     else
