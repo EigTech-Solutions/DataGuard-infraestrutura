@@ -9,7 +9,6 @@ updateAndUpgrade() {
     echo "Atualizando pacotes para iniciar a instalação..."
     sudo apt update -y
     echo "Pacotes atualizados!"
-    sleep 2
 }
 verificarJava() {
     clear
@@ -20,7 +19,6 @@ verificarJava() {
     else
         echo "Java não encontrado"
         echo "Instalando o Java 17..."
-        sleep 2
         sudo apt install openjdk-17-jre -y
     fi
 }
@@ -30,11 +28,9 @@ instalardockerio() {
     if [$? = 0]; then
         echo "O Docker não está instalado"
         echo "Instalando o Docker..."
-        sleep 2
         sudo apt install docker.io -y
     else
         echo "Docker ja está instalado"
-        sleep 2
     fi
 }
 rodarDockerIo() {
@@ -56,16 +52,13 @@ instalarJar() {
     if [ $? = 0 ]; then
         echo "DataGuard já instalado"
         echo "Iniciando o DataGuard."
-        sleep 2
         java -jar dataguard.jar
     else
         echo "Instalando o DataGuard..."
-        sleep 2
         Sudo docker run –it dataguard2023/jar:latest
         if [ $? -eq 0 ]; then
             echo "Instalação concluída!"
             echo "Iniciando o DataGuard."
-            sleep 2
             java -jar dataguard-1.0-SNAPSHOT-jar-with-dependencies.jar
         else
             echo "O curl encontrou um erro."
