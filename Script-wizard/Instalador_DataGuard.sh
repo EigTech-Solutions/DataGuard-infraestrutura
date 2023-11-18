@@ -12,9 +12,8 @@ update() {
 }
 instalardockerio() {
     echo "Verificando a versão do Docker..."
-    docker version
+    sudo docker -v
     if [$? = 0]; then
-        echo "O Docker não está instalado"
         echo "Instalando o Docker..."
         sudo apt install docker.io -y
     else
@@ -31,9 +30,9 @@ rodarDockerIo() {
         echo "O container $NOME_CONTAINER está em execução."
     else
         sudo docker run --name dataguard_mysql -d -p 3306:3306 dataguard2023/db:latest
-        sleep 5
-        sudo docker run –it dataguard2023/jar:latest
     fi
+    sleep 5
+    sudo docker run –it dataguard2023/jar:latest
 }
 
 menu() {
