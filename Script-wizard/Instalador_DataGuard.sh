@@ -55,7 +55,7 @@ instalarJar() {
         java -jar dataguard.jar
     else
         echo "Instalando o DataGuard..."
-        Sudo docker run –it dataguard2023/jar:latest
+        sudo docker run –it dataguard2023/jar:latest
         if [ $? -eq 0 ]; then
             echo "Instalação concluída!"
             echo "Iniciando o DataGuard."
