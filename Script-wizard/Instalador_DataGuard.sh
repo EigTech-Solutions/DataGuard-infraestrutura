@@ -7,7 +7,7 @@ PS3="$prompt "
 updateAndUpgrade() {
     clear
     echo "Atualizando pacotes para iniciar a instalação..."
-    sudo apt update && sudo apt upgrade -y
+    sudo apt update -y
     echo "Pacotes atualizados!"
     sleep 2
     exit 1
