@@ -10,7 +10,6 @@ updateAndUpgrade() {
     sudo apt update -y
     echo "Pacotes atualizados!"
     sleep 2
-    exit 1
 }
 verificarJava() {
     clear
@@ -23,7 +22,6 @@ verificarJava() {
         echo "Instalando o Java 17..."
         sleep 2
         sudo apt install openjdk-17-jre -y
-        exit 1
     fi
 }
 instalardockerio() {
@@ -34,26 +32,21 @@ instalardockerio() {
         echo "Instalando o Docker..."
         sleep 2
         sudo apt install docker.io -y
-        exit 0
     else
         echo "Docker ja está instalado"
         sleep 2
-        exit 1
     fi
 }
 rodarDockerIo() {
     if ! systemctl is-active --quiet docker; then
         echo "O Docker não está em execução."c
         sudo systemctl start docker
-        exit 1
     fi
     NOME_CONTAINER="dataguard_mysql"
     if docker ps --format '{{.Names}}' | grep -q "$NOME_CONTAINER"; then
         echo "O container $NOME_CONTAINER está em execução."
-        exit 0
     else
         sudo docker run --name dataguard_mysql -d -p 3306:3306 dataguard2023/db:latest
-        exit 1
     fi
 }
 instalarJar() {
@@ -68,8 +61,8 @@ instalarJar() {
     else
         echo "Instalando o DataGuard..."
         sleep 2
-        Sudo docker run –it dataguard2023/jar:latest 
-     if [ $? -eq 0 ]; then
+        Sudo docker run –it dataguard2023/jar:latest
+        if [ $? -eq 0 ]; then
             echo "Instalação concluída!"
             echo "Iniciando o DataGuard."
             sleep 2
@@ -87,6 +80,8 @@ menu() {
             echo "Iniciando a instalação..."
             updateAndUpgrade
             verificarJava
+            instalardockerio
+            rodarDockerIo
             instalarJar
             break
             ;;
