@@ -25,12 +25,7 @@ rodarDockerIo() {
         echo "O Docker não está em execução."c
         sudo systemctl start docker
     fi
-    NOME_CONTAINER="dataguard_mysql"
-    if docker ps --format '{{.Names}}' | grep -q "$NOME_CONTAINER"; then
-        echo "O container $NOME_CONTAINER está em execução."
-    else
-        sudo docker run --name dataguard_mysql -d -p 3306:3306 dataguard2023/db:latest
-    fi
+    sudo docker run -d -p 3306:3306 dataguard2023/db:latest
     sleep 5
     sudo docker run –it dataguard2023/jar:latest
 }
