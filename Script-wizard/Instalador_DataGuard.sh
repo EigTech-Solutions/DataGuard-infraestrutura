@@ -14,10 +14,10 @@ instalardockerio() {
     echo "Verificando a versão do Docker..."
     sudo docker -v
     if [ $? -eq 0 ]; then
+        echo "Docker já está instalado."
+    else
         echo "Instalando o Docker..."
         sudo apt install docker.io -y
-    else
-        echo "Docker ja está instalado"
     fi
 }
 rodarDockerIo() {
