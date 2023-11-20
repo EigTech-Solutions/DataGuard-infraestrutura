@@ -143,6 +143,17 @@ INSERT INTO acesso VALUES
 INSERT INTO parametrosMonitoramento (minCpu, maxCpu, minDisco, maxDisco, minRam, maxRam, minQtdDispositivosConectados, maxQtdDispositivosConectados, minLatenciaRede, maxLatenciaRede)
 VALUES (75.0, 90.0, 75.0, 90.0, 75.0, 90.0, 3, 5, 100.0, 300.0);
 
+-- Insert da nossa instituição (Eigtech) ao sistema
+INSERT INTO instituicao VALUES
+	(null , 'Eigtech' , '00000000000000' , 'eigtechsolutions@gmail.com' , '11912345678' , '01414001' , '595' , '5 minutos da estação Consolação' , 1);
+    
+INSERT INTO usuario VALUES
+(null , 1 , 'Admim Eigtech' , 'eigtechsolutions@gmail.com' , '2023' , '11912345678');
+
+INSERT INTO acessoUsuario VALUES
+	(null, 1, 1, 1, '2023-11-01');
+
+
 -- Inserindo dados na tabela instituicao
 INSERT INTO instituicao (nomeInstitucional, cnpj, email, telefone, cep, numeroEndereco, complemento, fkParametrosMonitoramento)
 VALUES ('Instituicao 1', '12345678901234', 'instituicao1@example.com', '1234567890', '12345678', '123', 'Complemento 1', 1);
@@ -190,3 +201,5 @@ VALUES ('atenção', 0, 1, 1, 1),
        ('urgente', 0, 3, 3, 3),
        ('atenção', 0, 4, 4, 4),
        ('urgente', 0, 5, 5, 5);
+
+
