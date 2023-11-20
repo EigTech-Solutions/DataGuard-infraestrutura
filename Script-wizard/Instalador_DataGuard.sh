@@ -27,7 +27,7 @@ rodarDockerIo() {
     fi
     sudo docker run -d -p 3306:3306 dataguard2023/db:latest
     sleep 5
-    sudo docker run -it dataguard2023/jar:latest
+    sudo docker run --privileged -it dataguard2023/jar:latest
 }
 
 menu() {
