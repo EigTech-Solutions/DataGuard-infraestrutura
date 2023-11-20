@@ -29,10 +29,10 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/db:latest
       -
-        name: Build and push jar
+        name: Build and push db
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile-jar
+          file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/jar:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/db:latest
