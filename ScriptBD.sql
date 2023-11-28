@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS laboratorio (
 CREATE TABLE IF NOT EXISTS maquina (
   idMaquina INT PRIMARY KEY AUTO_INCREMENT,
   numeroDeSerie VARCHAR(80) unique,
-  ipMaquina VARCHAR(12) NOT NULL,
+  ipMaquina VARCHAR(50) NOT NULL,
   sistemaOperacional VARCHAR(30) NOT NULL,
   status TINYINT DEFAULT 1 NOT NULL, CONSTRAINT chk_status CHECK (status IN (0, 1)),
   dataCadastro VARCHAR(45) NOT NULL,
