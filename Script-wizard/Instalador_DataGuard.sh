@@ -39,7 +39,7 @@ rodarDockerIo() {
     diretorio_no_host="/home"
 
     # Copiar arquivos do contêiner para o host usando a substring "log"
-    sudo docker cp $(sudo docker exec $nome_do_container ls $diretorio_no_container | grep "log") $diretorio_no_host
+    sudo docker cp $nome_do_container:$(sudo docker exec $nome_do_container ls $diretorio_no_container | grep "log") $diretorio_no_host
 }
 
 menu() {
