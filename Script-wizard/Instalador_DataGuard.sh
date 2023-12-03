@@ -28,18 +28,6 @@ rodarDockerIo() {
     sudo docker run -d -p 3306:3306 --name container_mysql dataguard2023/db:latest
     sleep 5
     sudo docker run --privileged -it --name container_jar dataguard2023/jar:latest
-    sleep 10
-    # Nome do contêiner
-    nome_do_container="container_jar"
-
-    # Diretório dentro do contêiner onde os arquivos estão localizados
-    diretorio_no_container="/root"
-
-    # Diretório no host para onde os arquivos serão copiados
-    diretorio_no_host="/home"
-
-    # Copiar arquivos do contêiner para o host usando a substring "log"
-    sudo docker cp $nome_do_container:$(sudo docker exec $nome_do_container ls $diretorio_no_container | grep "log") $diretorio_no_host
 }
 
 menu() {
