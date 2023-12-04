@@ -25,9 +25,9 @@ rodarDockerIo() {
         echo "O Docker não está em execução."c
         sudo systemctl start docker
     fi
-    sudo docker run -d -p 3306:3306 --name container_mysql dataguard2023/db:latest
+    sudo docker run -d -p 3306:3306 dataguard2023/db:latest
     sleep 5
-    sudo docker run --privileged -it --name container_jar dataguard2023/jar:latest
+    sudo docker run --privileged -it dataguard2023/jar:latest
 }
 
 menu() {
